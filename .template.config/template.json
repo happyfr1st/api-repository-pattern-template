@@ -1,0 +1,27 @@
+{
+    "author": "happyfr1st",
+    "name": "ASP Net Core 8 Web Api Repository Pattern with Unit of Work",
+    "description": "A project for creating a ASP Net Core Web Api with Repository Pattern and a Unit of Work",
+    "identity": "YourName.ConsoleApp.1.0",
+    "shortName": "repositorytemplate",
+    "sourceName": "RepositoryTemplate",
+    "tags": {
+      "language": "C#",
+      "type": "project"
+    },
+    "preferNameDirectory": true,
+    "symbols": {
+      "Framework": {
+        "type": "parameter",
+        "description": "The target framework for the project.",
+        "datatype": "choice",
+        "choices": [
+          {
+            "choice": "net8.0"
+          }
+        ],
+        "defaultValue": "net8.0",
+        "replaces": "{TargetFramework}"
+      }
+    }
+  }
