@@ -2,6 +2,8 @@
 
 public interface IUnitOfWork
 {
-    // IEventRepository Events { get; }
+    IUserRepository Users { get; }
+    IRefreshTokenRepository RefreshTokens { get; }
+    
     Task<bool> CompleteAsync();
 }

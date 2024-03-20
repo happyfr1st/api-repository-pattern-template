@@ -8,14 +8,16 @@ public class UnitOfWork : IUnitOfWork, IDisposable
 {
     private readonly AppDbContext _context;
     
-    // public IEventRepository Events { get; }
+    public IUserRepository Users { get; }
+    public IRefreshTokenRepository RefreshTokens { get; }
     
     public UnitOfWork(AppDbContext context, ILoggerFactory loggerFactory)
     {
         _context = context;
         var logger = loggerFactory.CreateLogger("logs");
         
-        // Events = new EventRepository (_context, logger);
+        Users = new UserRepository(_context, logger);
+        RefreshTokens = new RefreshTokenRepository(_context, logger);
     }
 
     public async Task<bool> CompleteAsync()

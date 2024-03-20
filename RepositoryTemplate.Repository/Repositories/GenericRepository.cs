@@ -8,7 +8,7 @@ namespace RepositoryTemplate.Repository.Repositories;
 public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
     public readonly ILogger _logger;
-    protected AppDbContext _context;
+    internal AppDbContext _context;
     internal DbSet<T> _dbSet;
 
     public GenericRepository(AppDbContext context, ILogger logger)
@@ -18,37 +18,33 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         _dbSet = context.Set<T>();
     }
     
-    public virtual async Task<IEnumerable<T>> GetAll()
+    public async Task<IEnumerable<T>> GetAll()
     {
         return await _dbSet.ToListAsync();
     }
 
-    public virtual async Task<T?> GetById(Guid id)
+    public virtual async Task<T?> Get(int id)
     {
         return await _dbSet.FindAsync(id);
     }
 
-    public virtual async Task<bool> Add(T entity)
+    public virtual async Task Add(T entity)
     {
         await _dbSet.AddAsync(entity);
-        return true;
     }
 
-    public virtual async Task<bool> Update(T entity)
+    public virtual void Update(T entity)
     {
         _dbSet.Update(entity);
-        return true;
     }
 
-    public virtual async Task<bool> Delete(Guid id)
+    public virtual async void Delete(int id)
     { 
-        var entity = await GetById(id);
+        var entity = await Get(id);
         
         if (entity != null)
         {
             _dbSet.Remove(entity);
         }
-        
-        return true;
     }
 }

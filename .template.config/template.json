@@ -1,8 +1,10 @@
 {
+    "$schema": "https://json.schemastore.org/template",
     "author": "happyfr1st",
+    "classifications": ["Web", "WebApi", "Api", "SPA"],
     "name": "ASP Net Core 8 Web Api Repository Pattern with Unit of Work",
-    "description": "A project for creating a ASP Net Core Web Api with Repository Pattern and a Unit of Work",
-    "identity": "YourName.ConsoleApp.1.0",
+    "description": "A template for creating an ASP.NET Core Web Api with the repository- and unit of work pattern",
+    "identity": "RepositoryTemplate",
     "shortName": "repositorytemplate",
     "sourceName": "RepositoryTemplate",
     "tags": {

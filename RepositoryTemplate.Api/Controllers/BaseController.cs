@@ -6,7 +6,7 @@ namespace RepositoryTemplate.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class BaseController : ControllerBase
+public abstract class BaseController : ControllerBase
 {
     protected readonly IUnitOfWork _unitOfWork;
     protected readonly IMapper _mapper;
